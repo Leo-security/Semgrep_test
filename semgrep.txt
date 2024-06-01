@@ -1,0 +1,98 @@
+                   
+                   
+┌─────────────────┐
+│ 9 Code Findings │
+└─────────────────┘
+                           
+  [36m[22m[24m  erays.py[0m
+   ❯❯❱ [1mpython.lang.security.audit.subprocess-shell-true.subprocess-shell-true[0m
+          Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will   
+          spawn the command using a shell process. Doing so propagates current shell settings and variables,
+          which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.  
+          Details: https://sg.run/J92w                                                                      
+                                                                                                            
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+           57┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+           58┆                      start_new_session=True)
+            ⋮┆----------------------------------------
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+           89┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+           90┆                      start_new_session=True)
+                                         
+  [36m[22m[24m  gigahorse-toolchain.py[0m
+   ❯❯❱ [1mpython.lang.security.audit.subprocess-shell-true.subprocess-shell-true[0m
+          Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will   
+          spawn the command using a shell process. Doing so propagates current shell settings and variables,
+          which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.  
+          Details: https://sg.run/J92w                                                                      
+                                                                                                            
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+           74┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+           75┆                      start_new_session=True)
+                               
+  [36m[22m[24m  gigahorse.py[0m
+   ❯❯❱ [1mpython.lang.security.audit.subprocess-shell-true.subprocess-shell-true[0m
+          Found 'subprocess' function 'run' with 'shell=True'. This is dangerous because this call will spawn
+          the command using a shell process. Doing so propagates current shell settings and variables, which 
+          makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.         
+          Details: https://sg.run/J92w                                                                       
+                                                                                                             
+           [32m▶▶┆ Autofix ▶ [0msubprocess.run(cmd, timeout=TIMEOUT, shell=False, capture_output=True)
+           27┆ cp = subprocess.run(cmd, timeout=TIMEOUT, shell=True, capture_output=True)
+                               
+  [36m[22m[24m  panoramix.py[0m
+   ❯❯❱ [1mpython.lang.security.audit.subprocess-shell-true.subprocess-shell-true[0m
+          Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will   
+          spawn the command using a shell process. Doing so propagates current shell settings and variables,
+          which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.  
+          Details: https://sg.run/J92w                                                                      
+                                                                                                            
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+           72┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+           73┆                      start_new_session=True)
+            ⋮┆----------------------------------------
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+          129┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+          130┆                      start_new_session=True)
+                                     
+  [36m[22m[24m  panoramix_multi.py[0m
+   ❯❯❱ [1mpython.lang.security.audit.subprocess-shell-true.subprocess-shell-true[0m
+          Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will   
+          spawn the command using a shell process. Doing so propagates current shell settings and variables,
+          which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.  
+          Details: https://sg.run/J92w                                                                      
+                                                                                                            
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+           67┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+           68┆                      start_new_session=True)
+            ⋮┆----------------------------------------
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+          128┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+          129┆                      start_new_session=True)
+                            
+  [36m[22m[24m  vandal.py[0m
+   ❯❯❱ [1mpython.lang.security.audit.subprocess-shell-true.subprocess-shell-true[0m
+          Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will   
+          spawn the command using a shell process. Doing so propagates current shell settings and variables,
+          which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.  
+          Details: https://sg.run/J92w                                                                      
+                                                                                                            
+           [32m▶▶┆ Autofix ▶ [0msubprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=False,
+              close_fds=True,start_new_session=True)                                                                
+           65┆ p = subprocess.Popen(cmd_string, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+               shell=True, close_fds=True,                                                       
+           66┆                      start_new_session=True)
